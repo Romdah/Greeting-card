@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>greeting card</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="Styles.css">
+  </head>
+  <script>
+  document.getElementById("shareBtn").addEventListener("click", async () => {
+    const data = {
+      title: "Happy Independence Day, Nigeria!",
+      text: "Happy 66th Birthday to Nigeria! 🇳🇬 Together we rise.",
+      url: window.location.href
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(data);
+      } catch (e) {}
+    } else {
+      alert("Sharing isn't supported on this browser.");
+    }
+  });
+  </script>
+  <body>
+    <div class="card">
+      <h1> Happy Independence Day!</h1>
+      <p class="message">Happy 66<sup>th</sup> Birthday to Nigeria.<br>
+        May our beloved nation continue to grow in peace, unity, and prosperity. May brighter days lie ahead for every Nigerian.</p>
+    <div class="card-link">
+      <p>On October 1, 1960, Nigeria took its first steps as an independent nation. 66 years later, we are still standing, still hoping, still building.</p>
+<p>Wishing you a joyful Independence Day! 🇳🇬 Together we rise.</p>
+      <button id="shareBtn">Share this card 🇳🇬</button>
+    </div>
+  </div>
+    
+  </body>
+</html>
