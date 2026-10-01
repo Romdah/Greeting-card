@@ -5,23 +5,20 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="Styles.css">
   </head>
-  <script>
-  document.getElementById("shareBtn").addEventListener("click", async () => {
-    const data = {
-      title: "Happy Independence Day, Nigeria!",
-      text: "Happy 66th Birthday to Nigeria! 🇳🇬 Together we rise.",
+  
+<script>
+document.getElementById("shareBtn").onclick = function () {
+  if (navigator.share) {
+    navigator.share({
+      title: "Happy Independence Day!",
+      text: "Wishing you a joyful Independence Day! 🇳🇬",
       url: window.location.href
-    };
-
-    if (navigator.share) {
-      try {
-        await navigator.share(data);
-      } catch (e) {}
-    } else {
-      alert("Sharing isn't supported on this browser.");
-    }
-  });
-  </script>
+    });
+  } else {
+    alert("Copy this link to share: " + window.location.href);
+  }
+};
+</script>
   <body>
     <div class="card">
       <h1> Happy Independence Day!</h1>
